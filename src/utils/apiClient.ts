@@ -14,8 +14,6 @@ const apiClient = axios.create({
 // ✅ Corrección del `responseHandler`
 const responseHandler = <T>(response: AxiosResponse<T>): T => response.data;
 
-type NotificationType = "success" | "info" | "warning" | "error";
-
 const errorHandler = (error: AxiosError) => {
   if (error.response) {
     const { status } = error.response;
