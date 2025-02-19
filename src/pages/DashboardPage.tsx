@@ -42,7 +42,7 @@ const DashboardPage: React.FC = () => {
     };
 
     fetchTransactions();
-  }, []);
+  }, [transactionService]);
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", mt: 2 }}>
