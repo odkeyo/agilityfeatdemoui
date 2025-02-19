@@ -11,7 +11,6 @@ const apiClient = axios.create({
   },
 });
 
-// ✅ Corrección del `responseHandler`
 const responseHandler = <T>(response: AxiosResponse<T>): T => response.data;
 
 const errorHandler = (error: AxiosError) => {
@@ -51,7 +50,6 @@ const errorHandler = (error: AxiosError) => {
   return Promise.reject(error.message);
 };
 
-// ✅ Corrección en el interceptor
 apiClient.interceptors.response.use(
   (response) => responseHandler(response),
   errorHandler
