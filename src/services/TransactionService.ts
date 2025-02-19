@@ -10,7 +10,7 @@ class TransactionService implements ITransactionService {
       const response = await apiClient.get<Result>("/Transaction");
       return response as unknown as Result;
     } catch (error) {
-      return { success: false, message: "Error obteniendo transacciones" };
+      return { success: false, message: "Error retrieving transactions." };
     }
   }
 
@@ -25,7 +25,7 @@ class TransactionService implements ITransactionService {
       const response = await apiClient.get<Result>(`/Transaction/filter?${queryParams.toString()}`);
       return response as unknown as Result;
     } catch (error) {
-      return { success: false, message: "Error obteniendo transacciones con filtros" };
+      return { success: false, message: "Error retrieving filtered transactions." };
     }
   }
 
@@ -34,7 +34,7 @@ class TransactionService implements ITransactionService {
       const response = await apiClient.post<Result>("/Transaction", transaction);
       return response as unknown as Result;
     } catch (error) {
-      return { success: false, message: "Error agregando transacción" };
+      return { success: false, message: "Error adding transaction." };
     }
   }
 }

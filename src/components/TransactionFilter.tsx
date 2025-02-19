@@ -16,7 +16,7 @@ const TransactionFilter: React.FC<TransactionFilterProps> = ({ filters, onTextCh
     <Card sx={{ width: "80%", maxWidth: 800, mb: 2, boxShadow: 3 }}>
       <CardContent>
         <Typography variant="h6" sx={{ mb: 1, fontWeight: "bold" }}>
-          Balance Total
+          Total Balance
         </Typography>
         <Typography
           variant="h4"
@@ -28,19 +28,19 @@ const TransactionFilter: React.FC<TransactionFilterProps> = ({ filters, onTextCh
           ${balance.toFixed(2)}
         </Typography>
         <Box sx={{ display: "flex", gap: 2, mb: 2 }}>
-          {renderSelectField("type", "Tipo", [
-            { label: "Todos", value: "" },
-            { label: "Ingreso", value: "Ingreso" },
-            { label: "Gasto", value: "Gasto" },
+          {renderSelectField("type", "Type", [
+            { label: "All", value: "" },
+            { label: "Income", value: "Income" },
+            { label: "Expense", value: "Expense" },
           ], filters, onSelectChange)}
-          {renderTextField("minAmount", "Monto Mínimo", "number", filters, onTextChange)}
-          {renderTextField("maxAmount", "Monto Máximo", "number", filters, onTextChange)}
+          {renderTextField("minAmount", "Min Amount", "number", filters, onTextChange)}
+          {renderTextField("maxAmount", "Max Amount", "number", filters, onTextChange)}
         </Box>
         <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
-          {renderTextField("startDate", "Fecha Inicio", "date", filters, onTextChange)}
-          {renderTextField("endDate", "Fecha Fin", "date", filters, onTextChange)}          
+          {renderTextField("startDate", "Start Date", "date", filters, onTextChange)}
+          {renderTextField("endDate", "End Date", "date", filters, onTextChange)}          
           <Button variant="contained" color="primary" onClick={onApplyFilters} sx={{ height: "100%", whiteSpace: "nowrap" }}>
-            Filtrar
+            Filter
           </Button>
         </Box>
       </CardContent>

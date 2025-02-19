@@ -24,16 +24,15 @@ const DashboardPage: React.FC = () => {
 
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 90 },
-    { field: "amount", headerName: "Monto", width: 120, type: "number" },
-    { field: "type", headerName: "Tipo", width: 150 },
-    { field: "date", headerName: "Fecha", width: 180 },
-    { field: "description", headerName: "Descripción", width: 300 },
+    { field: "amount", headerName: "Amount", width: 120, type: "number" },
+    { field: "type", headerName: "Type", width: 150 },
+    { field: "date", headerName: "Date", width: 180 },
+    { field: "description", headerName: "Description", width: 300 },
   ];
 
   const fetchAllTransactions = useCallback(async () => {
     setLoading(true);
     const result = await transactionServiceRef.getTransactions();
-
     if (!result.success) {
       toast.warn(result.message);
     } else {
@@ -72,11 +71,11 @@ const DashboardPage: React.FC = () => {
 
   const calculateBalance = (transactions: ITransaction[]) => {
     const totalIncome = transactions
-      .filter((t) => t.type === "Ingreso")
+      .filter((t) => t.type === "Income")
       .reduce((acc, transaction) => acc + transaction.amount, 0);
   
     const totalExpense = transactions
-      .filter((t) => t.type === "Gasto")
+      .filter((t) => t.type === "Expense")
       .reduce((acc, transaction) => acc + transaction.amount, 0);
   
     const balance = totalIncome - totalExpense;
@@ -86,9 +85,9 @@ const DashboardPage: React.FC = () => {
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", mt: 2 }}>
-      {/* Título */}
+      {/* Title */}
       <Typography variant="h4" sx={{ mb: 2 }}>
-        Resumen de Transacciones
+        Transaction Summary
       </Typography>
       <TransactionFilter
         filters={filters}
@@ -100,7 +99,7 @@ const DashboardPage: React.FC = () => {
       <Card sx={{ width: "80%", maxWidth: 800, boxShadow: 3 }}>
         <CardContent>
           <Typography variant="h6" gutterBottom>
-            Historial de Transacciones
+            Transaction History
           </Typography>
           <Box sx={{ height: 400, width: "100%" }}>
             <DataGrid rows={rows} columns={columns} loading={loading} pageSizeOptions={[5, 10]} />

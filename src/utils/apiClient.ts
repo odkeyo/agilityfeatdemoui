@@ -19,32 +19,32 @@ const errorHandler = (error: AxiosError) => {
     switch (status) {
       case 400:
         console.error("Bad request");
-        toast.error("Error 400: Solicitud incorrecta.", { position: "top-right", autoClose: 5000 });
+        toast.error("Error 400: Bad request.", { position: "top-right", autoClose: 5000 });
         break;
       case 401:
         console.error("Unauthorized");
-        toast.error("Error 401: No autorizado.", { position: "top-right", autoClose: 5000 });
+        toast.error("Error 401: Unauthorized access.", { position: "top-right", autoClose: 5000 });
         break;
       case 404:
         console.error("404");
-        toast.error("Error 404: Recurso no encontrado.", { position: "top-right", autoClose: 5000 });
+        toast.error("Error 404: Resource not found.", { position: "top-right", autoClose: 5000 });
         break;
       case 500:
         console.error("500");
-        toast.error("Error 500: Error interno del servidor.", { position: "top-right", autoClose: 5000 });
+        toast.error("Error 500: Internal server error.", { position: "top-right", autoClose: 5000 });
         break;
       default:
-        toast.error("Error desconocido en la API.", { position: "top-right", autoClose: 5000 });
+        toast.error("Unknown API error.", { position: "top-right", autoClose: 5000 });
     }
     return Promise.reject(error.response.data);
   }
 
   if (error.message === "Network Error") {
-    toast.error("Error de red. Verifica tu conexión.", { position: "top-right", autoClose: 5000 });
+    toast.error("Network error. Please check your connection.", { position: "top-right", autoClose: 5000 });
   } else if (error.code === "ECONNABORTED") {
-    toast.error("La solicitud tardó demasiado en responder.", { position: "top-right", autoClose: 5000 });
+    toast.error("The request took too long to respond.", { position: "top-right", autoClose: 5000 });
   } else {
-    toast.error("Ocurrió un error inesperado.", { position: "top-right", autoClose: 5000 });
+    toast.error("An unexpected error occurred.", { position: "top-right", autoClose: 5000 });
   }
 
   return Promise.reject(error.message);

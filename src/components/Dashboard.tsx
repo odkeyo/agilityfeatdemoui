@@ -48,7 +48,7 @@ const Dashboard: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           <Toolbar />
           <List>
             <SidebarItem text="Dashboard" icon={<DashboardIcon />} path="/" textColor={textColor} iconColor={iconColor} />
-            <SidebarItem text="Mantenimiento" icon={<SettingsIcon />} path="/maintenance" textColor={textColor} iconColor={iconColor} />
+            <SidebarItem text="Maintenance" icon={<SettingsIcon />} path="/maintenance" textColor={textColor} iconColor={iconColor} />
           </List>
         </Box>
 

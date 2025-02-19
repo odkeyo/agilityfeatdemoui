@@ -5,14 +5,13 @@ import { useFormHandlers } from "../hooks/useFormHandlers";
 import { renderTextField, renderSelectField } from "../utils/formFieldRenderer";
 import { formatDateTime } from "../utils/dateUtils";
 
-
 interface TransactionFormProps {
   initialData?: ITransaction;
   onSubmit: (transaction: ITransaction, resetForm: () => void) => void;
 }
 
 const TransactionForm: React.FC<TransactionFormProps> = ({ initialData, onSubmit }) => {
-  // Definimos la transacción por defecto
+  // Default transaction
   const defaultTransaction: ITransaction = {
     id: 0,
     amount: 0,
@@ -23,12 +22,10 @@ const TransactionForm: React.FC<TransactionFormProps> = ({ initialData, onSubmit
   
   const { formState: transaction, setFormState: setTransaction, handleTextChange, handleSelectChange } = useFormHandlers<ITransaction>(initialData || defaultTransaction);
 
-  
   const resetForm = () => {
     setTransaction(defaultTransaction);
   };
 
-  
   const handleSubmit = () => {
     onSubmit(transaction, resetForm);
   };
@@ -36,16 +33,16 @@ const TransactionForm: React.FC<TransactionFormProps> = ({ initialData, onSubmit
   return (
     <Card sx={{ width: "50%", boxShadow: 3 }}>
       <CardContent>
-        {renderTextField("amount", "Monto", "number", transaction, handleTextChange)}
-        {renderSelectField("type", "Tipo", [
-          { label: "Ingreso", value: "Ingreso" },
-          { label: "Gasto", value: "Gasto" },
+        {renderTextField("amount", "Amount", "number", transaction, handleTextChange)}
+        {renderSelectField("type", "Type", [
+          { label: "Income", value: "Income" },
+          { label: "Expense", value: "Expense" },
         ], transaction, handleSelectChange)}
-        {renderTextField("date", "Fecha", "date", transaction, handleTextChange)}
-        {renderTextField("description", "Descripción", "text", transaction, handleTextChange)}
+        {renderTextField("date", "Date", "date", transaction, handleTextChange)}
+        {renderTextField("description", "Description", "text", transaction, handleTextChange)}
 
         <Button variant="contained" color="primary" onClick={handleSubmit} fullWidth>
-          Guardar Transacción
+          Save Transaction
         </Button>
       </CardContent>
     </Card>
