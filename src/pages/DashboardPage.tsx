@@ -20,6 +20,7 @@ const DashboardPage: React.FC = () => {
     endDate: "",
   });
   const [balance, setBalance] = useState(0);
+  const transactionServiceRef = useState(() => new TransactionService())[0];
 
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 90 },
@@ -29,13 +30,9 @@ const DashboardPage: React.FC = () => {
     { field: "description", headerName: "Descripción", width: 300 },
   ];
 
-  useEffect(() => {
-    fetchAllTransactions();
-  }, []);
-
   const fetchAllTransactions = useCallback(async () => {
     setLoading(true);
-    const result = await transactionService.getTransactions();
+    const result = await transactionServiceRef.getTransactions();
 
     if (!result.success) {
       toast.warn(result.message);
@@ -49,7 +46,11 @@ const DashboardPage: React.FC = () => {
       calculateBalance(formattedData);
     }
     setLoading(false);
-  }, []);
+  }, [transactionServiceRef]); 
+
+  useEffect(() => {
+    fetchAllTransactions();
+  }, [fetchAllTransactions]);
 
   const fetchFilteredTransactions = async () => {
     setLoading(true);
