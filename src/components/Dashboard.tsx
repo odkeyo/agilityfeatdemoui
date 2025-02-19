@@ -5,10 +5,10 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import SidebarItem from "./SidebarItem";
 
 const drawerWidth: number = 240;
-const sidebarBgColor: string = "#8c6ec4";
+const sidebarBgColor: string = "#000000";
 const backgroundColor: string = "#f5f5f5";
-const textColor: string = "#000000";
-const iconColor: string = "#000000";
+const textColor: string = "#FFFFFF";
+const iconColor: string = "#FFFFFF";
 
 const Dashboard: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
