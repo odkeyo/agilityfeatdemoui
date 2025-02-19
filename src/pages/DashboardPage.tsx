@@ -1,5 +1,5 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
-import { Typography, Card, CardContent, Box, TextField, MenuItem, Button } from "@mui/material";
+import React, { useCallback, useEffect, useState } from "react";
+import { Typography, Card, CardContent, Box } from "@mui/material";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { toast } from "react-toastify";
 import TransactionService from "../services/TransactionService";
@@ -33,7 +33,7 @@ const DashboardPage: React.FC = () => {
     fetchAllTransactions();
   }, []);
 
-  const fetchAllTransactions = async () => {
+  const fetchAllTransactions = useCallback(async () => {
     setLoading(true);
     const result = await transactionService.getTransactions();
 
@@ -49,7 +49,7 @@ const DashboardPage: React.FC = () => {
       calculateBalance(formattedData);
     }
     setLoading(false);
-  };
+  }, []);
 
   const fetchFilteredTransactions = async () => {
     setLoading(true);
