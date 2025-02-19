@@ -42,7 +42,8 @@ const DashboardPage: React.FC = () => {
     };
 
     fetchTransactions();
-  }, [transactionService]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", mt: 2 }}>
