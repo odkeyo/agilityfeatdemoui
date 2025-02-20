@@ -45,8 +45,19 @@ const DemoTestPage: React.FC = () => {
           ) : (
             <Typography>Loading...</Typography>
           )}
+          <Box sx={{ mt: 2 }}>
+            <Typography variant="body2" sx={{ mb: 1 }}>
+              "There is no spoon, just a working API..." 🥄💻
+            </Typography>
+            <img
+              src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2M4bm45OHRvZHVqdWczNDBwNnlpamc3OXJsbnczZDhtM24zNGhzZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/pKJ6d8xt93yGQ/giphy.gif"
+              alt="Matrix GIF"
+              width="200"
+              style={{ borderRadius: "10px" }}
+            />
+          </Box>
           <Button variant="contained" sx={{ mt: 2 }} onClick={fetchMessage}>
-            API Call
+            Matrix API Call
           </Button>
         </CardContent>
       </Card>
