@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Dashboard from "./components/Dashboard";
 import DashboardPage from "./pages/DashboardPage";
 import MaintenancePage from "./pages/MaintenancePage";
+import DemoTestPage from "./pages/DemoTestPage";
 
 const App: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<DashboardPage />} />
           <Route path="/maintenance" element={<MaintenancePage />} />
+          <Route path="/demo-test" element={<DemoTestPage />} />
         </Routes>
       </Dashboard>
     </Router>
