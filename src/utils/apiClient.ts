@@ -3,6 +3,7 @@ import type { AxiosResponse, AxiosError } from "axios";
 import { toast } from "react-toastify";
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+console.log("API Base URL:", API_BASE_URL); 
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,

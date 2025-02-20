@@ -15,7 +15,6 @@ export const formatDateTime = (date: Date): string => {
 };
 
 export const formatDateForInput = (date: string | Date | undefined | null): string => {
-    console.log(date);
     if (!date) return "";
     
     if (typeof date === "string" && date.length === 10) {
