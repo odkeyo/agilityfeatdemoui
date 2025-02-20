@@ -29,7 +29,7 @@ const DemoTestPage: React.FC = () => {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", mt: 4 }}>
       <Typography variant="h4" gutterBottom>
-        API Connection Test
+        API Connection Test 1
       </Typography>
       <Card sx={{ width: "50%", boxShadow: 3 }}>
         <CardContent>
