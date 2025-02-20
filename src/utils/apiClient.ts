@@ -2,7 +2,7 @@ import axios from "axios";
 import type { AxiosResponse, AxiosError } from "axios";
 import { toast } from "react-toastify";
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://agilityfeatdemoapi-g0ddg8cxdbesf9cz.canadacentral-01.azurewebsites.net";
 console.log("API Base URL:", API_BASE_URL); 
 
 const apiClient = axios.create({
