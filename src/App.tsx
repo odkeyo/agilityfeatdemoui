@@ -1,21 +1,25 @@
-import { useEffect, useState } from "react";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Dashboard from "./components/Dashboard";
+import DashboardPage from "./pages/DashboardPage";
+import MaintenancePage from "./pages/MaintenancePage";
+import DemoTestPage from "./pages/DemoTestPage";
 
-function App() {
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    fetch("http://localhost:5000/WeatherForecast")
-      .then((res) => res.json())
-      .then((data) => setMessage(JSON.stringify(data, null, 2)))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []);
-
+const App: React.FC = () => {
   return (
-    <div>
-      <h1>React + .NET Core</h1>
-      <pre>{message}</pre>
-    </div>
+    <Router>
+      <ToastContainer position="top-right" autoClose={5000} hideProgressBar />
+      <Dashboard>
+        <Routes>
+          <Route path="/" element={<DashboardPage />} />
+          <Route path="/maintenance" element={<MaintenancePage />} />
+          <Route path="/demo-test" element={<DemoTestPage />} />
+        </Routes>
+      </Dashboard>
+    </Router>
   );
-}
+};
 
 export default App;
